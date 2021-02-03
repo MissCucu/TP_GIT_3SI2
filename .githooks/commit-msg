@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+logRegex = /ref/
+
+fileName = ARGV[0]
+
+logFound = false
+
+	file = File.open(fileName)
+	content = file.read
+	puts content
+	if logRegex.match(content)
+		logFound = true
+	else
+		puts "you have to add a ticket reference"
+		exit 1
+	end 
+
+if logFound
+	puts "Commit accepted"
+end
+
